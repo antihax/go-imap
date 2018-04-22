@@ -4,7 +4,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/emersion/go-imap"
+	"github.com/antihax/go-imap"
 	"github.com/emersion/go-message"
 )
 

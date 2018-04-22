@@ -3,11 +3,12 @@ package responses
 import (
 	"encoding/base64"
 
-	"github.com/emersion/go-imap"
-	"github.com/emersion/go-sasl"
+	"github.com/antihax/go-imap"
+	sasl "github.com/emersion/go-sasl"
 )
 
 // An AUTHENTICATE response.
+
 type Authenticate struct {
 	Mechanism       sasl.Client
 	InitialResponse []byte

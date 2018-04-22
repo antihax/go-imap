@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emersion/go-imap"
+	"github.com/antihax/go-imap"
 )
 
 type cmdScanner struct {
@@ -76,7 +76,7 @@ func newTestClient(t *testing.T) (c *Client, s *serverConn) {
 	}
 
 	<-done
-	return
+	return c, s
 }
 
 func setClientState(c *Client, state imap.ConnState, mailbox *imap.MailboxStatus) {

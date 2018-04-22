@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/emersion/go-imap/utf7"
+	"github.com/antihax/go-imap/utf7"
 )
 
 // The primary mailbox, as defined in RFC 3501 section 5.1.
@@ -16,10 +16,7 @@ const InboxName = "INBOX"
 // case-sensitive or case-insensitive depending on the backend implementation.
 // The special INBOX mailbox is case-insensitive.
 func CanonicalMailboxName(name string) string {
-	if strings.ToUpper(name) == InboxName {
-		return InboxName
-	}
-	return name
+	return strings.Replace(strings.ToUpper(name), "\"", "", -1)
 }
 
 // Mailbox attributes definied in RFC 3501 section 7.2.2.

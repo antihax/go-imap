@@ -153,13 +153,15 @@ func (r *ContinuationReq) WriteTo(w *Writer) error {
 func ParseNamedResp(resp Resp) (name string, fields []interface{}, ok bool) {
 	data, ok := resp.(*DataResp)
 	if !ok || len(data.Fields) == 0 {
-		return
+		return name, fields,
+
+			// Some responses (namely EXISTS and RECENT) are formatted like so:
+			//   [num] [name] [...]
+			// Which is fucking stupid. But we handle that here by checking if the
+			// response name is a number and then rearranging it.
+			ok
 	}
 
-	// Some responses (namely EXISTS and RECENT) are formatted like so:
-	//   [num] [name] [...]
-	// Which is fucking stupid. But we handle that here by checking if the
-	// response name is a number and then rearranging it.
 	if len(data.Fields) > 1 {
 		name, ok := data.Fields[1].(string)
 		if ok {
@@ -175,7 +177,7 @@ func ParseNamedResp(resp Resp) (name string, fields []interface{}, ok bool) {
 	//   [name] [...]
 	name, ok = data.Fields[0].(string)
 	if !ok {
-		return
+		return name, fields, ok
 	}
 	return strings.ToUpper(name), data.Fields[1:], true
 }

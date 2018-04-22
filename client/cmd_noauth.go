@@ -5,10 +5,10 @@ import (
 	"errors"
 	"net"
 
-	"github.com/emersion/go-imap"
-	"github.com/emersion/go-imap/commands"
-	"github.com/emersion/go-imap/responses"
-	"github.com/emersion/go-sasl"
+	"github.com/antihax/go-imap"
+	"github.com/antihax/go-imap/commands"
+	"github.com/antihax/go-imap/responses"
+	sasl "github.com/emersion/go-sasl"
 )
 
 var (

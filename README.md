@@ -1,25 +1,25 @@
 # go-imap
 
-[![GoDoc](https://godoc.org/github.com/emersion/go-imap?status.svg)](https://godoc.org/github.com/emersion/go-imap)
-[![Build Status](https://travis-ci.org/emersion/go-imap.svg?branch=master)](https://travis-ci.org/emersion/go-imap)
-[![Codecov](https://codecov.io/gh/emersion/go-imap/branch/master/graph/badge.svg)](https://codecov.io/gh/emersion/go-imap)
+[![GoDoc](https://godoc.org/github.com/antihax/go-imap?status.svg)](https://godoc.org/github.com/antihax/go-imap)
+[![Build Status](https://travis-ci.org/antihax/go-imap.svg?branch=master)](https://travis-ci.org/antihax/go-imap)
+[![Codecov](https://codecov.io/gh/antihax/go-imap/branch/master/graph/badge.svg)](https://codecov.io/gh/antihax/go-imap)
 [![Go Report
-Card](https://goreportcard.com/badge/github.com/emersion/go-imap)](https://goreportcard.com/report/github.com/emersion/go-imap)
-[![Unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](https://github.com/emersion/stability-badges#unstable)
+Card](https://goreportcard.com/badge/github.com/antihax/go-imap)](https://goreportcard.com/report/github.com/antihax/go-imap)
+[![Unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](https://github.com/antihax/stability-badges#unstable)
 
 An [IMAP4rev1](https://tools.ietf.org/html/rfc3501) library written in Go. It
 can be used to build a client and/or a server.
 
 ```bash
-go get github.com/emersion/go-imap/...
+go get github.com/antihax/go-imap/...
 ```
 
 ## Why?
 
 Other IMAP implementations in Go:
-* Require to make [many type assertions or conversions](https://github.com/emersion/neutron/blob/ca635850e2223d6cfe818664ef901fa6e3c1d859/backend/imap/util.go#L110)
+* Require to make [many type assertions or conversions](https://github.com/antihax/neutron/blob/ca635850e2223d6cfe818664ef901fa6e3c1d859/backend/imap/util.go#L110)
 * Are not idiomatic or are [ugly](https://github.com/jordwest/imap-server/blob/master/conn/commands.go#L53)
-* Are [not pleasant to use](https://github.com/emersion/neutron/blob/ca635850e2223d6cfe818664ef901fa6e3c1d859/backend/imap/messages.go#L228)
+* Are [not pleasant to use](https://github.com/antihax/neutron/blob/ca635850e2223d6cfe818664ef901fa6e3c1d859/backend/imap/messages.go#L228)
 * Implement a server _xor_ a client, not both
 * Don't implement unilateral updates (i.e. the server can't notify clients for
   new messages)
@@ -28,7 +28,7 @@ Other IMAP implementations in Go:
 
 ## Usage
 
-### Client [![GoDoc](https://godoc.org/github.com/emersion/go-imap/client?status.svg)](https://godoc.org/github.com/emersion/go-imap/client)
+### Client [![GoDoc](https://godoc.org/github.com/antihax/go-imap/client?status.svg)](https://godoc.org/github.com/antihax/go-imap/client)
 
 ```go
 package main
@@ -36,8 +36,8 @@ package main
 import (
 	"log"
 
-	"github.com/emersion/go-imap/client"
-	"github.com/emersion/go-imap"
+	"github.com/antihax/go-imap/client"
+	"github.com/antihax/go-imap"
 )
 
 func main() {
@@ -111,7 +111,7 @@ func main() {
 }
 ```
 
-### Server [![GoDoc](https://godoc.org/github.com/emersion/go-imap/server?status.svg)](https://godoc.org/github.com/emersion/go-imap/server)
+### Server [![GoDoc](https://godoc.org/github.com/antihax/go-imap/server?status.svg)](https://godoc.org/github.com/antihax/go-imap/server)
 
 ```go
 package main
@@ -119,8 +119,8 @@ package main
 import (
 	"log"
 
-	"github.com/emersion/go-imap/server"
-	"github.com/emersion/go-imap/backend/memory"
+	"github.com/antihax/go-imap/server"
+	"github.com/antihax/go-imap/backend/memory"
 )
 
 func main() {
@@ -148,34 +148,34 @@ You can now use `telnet localhost 1143` to manually connect to the server.
 ### Extensions
 
 Commands defined in IMAP extensions are available in other packages. See [the
-wiki](https://github.com/emersion/go-imap/wiki/Using-extensions#using-client-extensions)
+wiki](https://github.com/antihax/go-imap/wiki/Using-extensions#using-client-extensions)
 to learn how to use them.
 
-* [APPENDLIMIT](https://github.com/emersion/go-imap-appendlimit)
-* [COMPRESS](https://github.com/emersion/go-imap-compress)
-* [ENABLE](https://github.com/emersion/go-imap-enable)
+* [APPENDLIMIT](https://github.com/antihax/go-imap-appendlimit)
+* [COMPRESS](https://github.com/antihax/go-imap-compress)
+* [ENABLE](https://github.com/antihax/go-imap-enable)
 * [ID](https://github.com/ProtonMail/go-imap-id)
-* [IDLE](https://github.com/emersion/go-imap-idle)
-* [MOVE](https://github.com/emersion/go-imap-move)
-* [QUOTA](https://github.com/emersion/go-imap-quota)
-* [SPECIAL-USE](https://github.com/emersion/go-imap-specialuse)
-* [UNSELECT](https://github.com/emersion/go-imap-unselect)
-* [UIDPLUS](https://github.com/emersion/go-imap-uidplus)
+* [IDLE](https://github.com/antihax/go-imap-idle)
+* [MOVE](https://github.com/antihax/go-imap-move)
+* [QUOTA](https://github.com/antihax/go-imap-quota)
+* [SPECIAL-USE](https://github.com/antihax/go-imap-specialuse)
+* [UNSELECT](https://github.com/antihax/go-imap-unselect)
+* [UIDPLUS](https://github.com/antihax/go-imap-uidplus)
 
 ### Server backends
 
-* [Memory](https://github.com/emersion/go-imap/tree/master/backend/memory) (for testing)
-* [Multi](https://github.com/emersion/go-imap-multi)
-* [PGP](https://github.com/emersion/go-imap-pgp)
-* [Proxy](https://github.com/emersion/go-imap-proxy)
+* [Memory](https://github.com/antihax/go-imap/tree/master/backend/memory) (for testing)
+* [Multi](https://github.com/antihax/go-imap-multi)
+* [PGP](https://github.com/antihax/go-imap-pgp)
+* [Proxy](https://github.com/antihax/go-imap-proxy)
 
 ### Related projects
 
-* [go-message](https://github.com/emersion/go-message) - parsing and formatting MIME and mail messages
-* [go-pgpmail](https://github.com/emersion/go-pgpmail) - decrypting and encrypting mails with OpenPGP
-* [go-sasl](https://github.com/emersion/go-sasl) - sending and receiving SASL authentications
-* [go-smtp](https://github.com/emersion/go-smtp) - building SMTP clients and servers
-* [go-dkim](https://github.com/emersion/go-dkim) - creating and verifying DKIM signatures
+* [go-message](https://github.com/antihax/go-message) - parsing and formatting MIME and mail messages
+* [go-pgpmail](https://github.com/antihax/go-pgpmail) - decrypting and encrypting mails with OpenPGP
+* [go-sasl](https://github.com/antihax/go-sasl) - sending and receiving SASL authentications
+* [go-smtp](https://github.com/antihax/go-smtp) - building SMTP clients and servers
+* [go-dkim](https://github.com/antihax/go-dkim) - creating and verifying DKIM signatures
 
 ## License
 
